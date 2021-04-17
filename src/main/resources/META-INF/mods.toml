@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT License"
+[[mods]]
+modId="spig"
+version="${file.jarVersion}"
+displayName="Spider Pig"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/spider-pig"
+logoFile="logo.png"
+authors="Lupicus, MacTso"
+description='''Spider Pig Mod'''
+[[dependencies.spig]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.spig]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
