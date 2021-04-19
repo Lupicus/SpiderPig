@@ -2,6 +2,7 @@ package com.lupicus.spig;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import com.lupicus.spig.renderer.entity.CaveSpiderPigRenderer;
 import com.lupicus.spig.renderer.entity.SpiderPigRenderer;
 
 import net.minecraft.entity.EntityType;
@@ -40,6 +41,6 @@ public class Main
     public void setupClient(final FMLClientSetupEvent event)
     {
         RenderingRegistry.registerEntityRenderingHandler(EntityType.SPIDER, rm -> new SpiderPigRenderer(rm));
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAVE_SPIDER, rm -> new SpiderPigRenderer(rm));
+        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAVE_SPIDER, rm -> new CaveSpiderPigRenderer(rm));
     }
 }

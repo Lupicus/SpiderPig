@@ -1,5 +1,6 @@
 /bin/
 /build/
+/logs/
 /old_stuff/
 /run/
 /runClient.launch

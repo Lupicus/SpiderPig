@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class SpiderPigRenderer extends MobRenderer<SpiderEntity, PigModel<SpiderEntity>>
 {
-    private static final ResourceLocation PIG_TEXTURES = new ResourceLocation("textures/entity/pig/pig.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation("spig:textures/entity/spider_pig.png");
 
     public SpiderPigRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new PigModel<>(), 0.7F);
@@ -19,6 +19,6 @@ public class SpiderPigRenderer extends MobRenderer<SpiderEntity, PigModel<Spider
 
     @Override
     public ResourceLocation getEntityTexture(SpiderEntity entity) {
-        return PIG_TEXTURES;
+        return TEXTURES;
     }
 }
