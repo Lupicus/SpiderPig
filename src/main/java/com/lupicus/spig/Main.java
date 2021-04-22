@@ -40,7 +40,7 @@ public class Main
     @SubscribeEvent
     public void setupClient(final FMLClientSetupEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.SPIDER, rm -> new SpiderPigRenderer(rm));
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAVE_SPIDER, rm -> new CaveSpiderPigRenderer(rm));
+        RenderingRegistry.registerEntityRenderingHandler(EntityType.SPIDER, SpiderPigRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAVE_SPIDER, CaveSpiderPigRenderer::new);
     }
 }
