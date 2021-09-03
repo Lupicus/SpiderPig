@@ -1,22 +1,21 @@
 package com.lupicus.spig;
 
-import org.apache.commons.lang3.tuple.Pair;
-
 import com.lupicus.spig.renderer.entity.CaveSpiderPigRenderer;
 import com.lupicus.spig.renderer.entity.SpiderPigRenderer;
 
-import net.minecraft.entity.EntityType;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.IExtensionPoint.DisplayTest;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.network.FMLNetworkConstants;
+import net.minecraftforge.fmllegacy.network.FMLNetworkConstants;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Main.MODID)
@@ -27,8 +26,8 @@ public class Main
     public Main()
     {
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
-        ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
-                () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
+        ModLoadingContext.get().registerExtensionPoint(DisplayTest.class,
+        		() -> new DisplayTest(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
     }
 
     @SubscribeEvent
@@ -40,7 +39,16 @@ public class Main
     @SubscribeEvent
     public void setupClient(final FMLClientSetupEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.SPIDER, SpiderPigRenderer::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityType.CAVE_SPIDER, CaveSpiderPigRenderer::new);
+    }
+
+    @Mod.EventBusSubscriber(bus = Bus.MOD)
+    public static class ModEvents
+    {
+        @SubscribeEvent
+        public static void onRenderers(final RegisterRenderers event)
+        {
+        	event.registerEntityRenderer(EntityType.SPIDER, SpiderPigRenderer::new);
+        	event.registerEntityRenderer(EntityType.CAVE_SPIDER, CaveSpiderPigRenderer::new);
+        }
     }
 }

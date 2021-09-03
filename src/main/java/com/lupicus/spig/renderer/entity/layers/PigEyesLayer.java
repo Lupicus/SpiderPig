@@ -2,26 +2,26 @@ package com.lupicus.spig.renderer.entity.layers;
 
 import com.lupicus.spig.Main;
 
+import net.minecraft.client.model.PigModel;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.IEntityRenderer;
-import net.minecraft.client.renderer.entity.layers.AbstractEyesLayer;
-import net.minecraft.client.renderer.entity.model.PigModel;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.EyesLayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class PigEyesLayer<T extends MobEntity, M extends PigModel<T>> extends AbstractEyesLayer<T, M>
+public class PigEyesLayer<T extends Mob, M extends PigModel<T>> extends EyesLayer<T, M>
 {
-    private static final RenderType RENDER_TYPE = RenderType.getEyes(new ResourceLocation(Main.MODID, "textures/entity/pig_eyes.png"));
+    private static final RenderType RENDER_TYPE = RenderType.eyes(new ResourceLocation(Main.MODID, "textures/entity/pig_eyes.png"));
 
-    public PigEyesLayer(IEntityRenderer<T, M> renderer) {
+    public PigEyesLayer(RenderLayerParent<T, M> renderer) {
         super(renderer);
     }
 
     @Override
-    public RenderType getRenderType() {
+    public RenderType renderType() {
         return RENDER_TYPE;
     }
 }

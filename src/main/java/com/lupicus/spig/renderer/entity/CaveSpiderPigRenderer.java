@@ -1,30 +1,30 @@
 package com.lupicus.spig.renderer.entity;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.PoseStack;
 
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.entity.monster.CaveSpiderEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.monster.CaveSpider;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class CaveSpiderPigRenderer extends SpiderPigRenderer<CaveSpiderEntity>
+public class CaveSpiderPigRenderer extends SpiderPigRenderer<CaveSpider>
 {
     private static final ResourceLocation TEXTURES = new ResourceLocation("spig:textures/entity/cave_spider_pig.png");
 
-    public CaveSpiderPigRenderer(EntityRendererManager renderManagerIn) {
+    public CaveSpiderPigRenderer(EntityRendererProvider.Context renderManagerIn) {
         super(renderManagerIn);
-        this.shadowSize *= 0.7F;
+        this.shadowRadius *= 0.7F;
     }
 
     @Override
-    protected void preRenderCallback(CaveSpiderEntity entitylivingbaseIn, MatrixStack matrixStackIn, float partialTickTime) {
+    protected void scale(CaveSpider entitylivingbaseIn, PoseStack matrixStackIn, float partialTickTime) {
         matrixStackIn.scale(0.7F, 0.7F, 0.7F);
     }
 
     @Override
-    public ResourceLocation getEntityTexture(CaveSpiderEntity entity) {
+    public ResourceLocation getTextureLocation(CaveSpider entity) {
         return TEXTURES;
     }
 }
