@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "spig",
+  "version": "${version}",
+
+  "name": "Spider Pig",
+  "description": "Spider Pig Mod",
+  "authors": [
+    "Lupicus, MacTso"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/spider-pig"
+  },
+
+  "license": "MIT License",
+  "icon": "logo.png",
+
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.lupicus.spig.MainClient"
+    ]
+  },
+  "mixins": [
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

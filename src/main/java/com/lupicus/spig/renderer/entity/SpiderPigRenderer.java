@@ -2,26 +2,27 @@ package com.lupicus.spig.renderer.entity;
 
 import com.lupicus.spig.renderer.entity.layers.PigEyesLayer;
 
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.model.PigModel;
-import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.PigEntityModel;
+import net.minecraft.entity.mob.SpiderEntity;
+import net.minecraft.util.Identifier;
 
-@OnlyIn(Dist.CLIENT)
-public class SpiderPigRenderer<T extends SpiderEntity> extends MobRenderer<T, PigModel<T>>
+@Environment(EnvType.CLIENT)
+public class SpiderPigRenderer<T extends SpiderEntity> extends MobEntityRenderer<T, PigEntityModel<T>>
 {
-    private static final ResourceLocation TEXTURES = new ResourceLocation("spig:textures/entity/spider_pig.png");
+    private static final Identifier TEXTURES = new Identifier("spig:textures/entity/spider_pig.png");
 
-    public SpiderPigRenderer(EntityRendererManager renderManagerIn) {
-        super(renderManagerIn, new PigModel<>(), 0.7F);
-        addLayer(new PigEyesLayer<>(this));
+    public SpiderPigRenderer(EntityRenderDispatcher renderManagerIn, EntityRendererRegistry.Context ctx) {
+        super(renderManagerIn, new PigEntityModel<>(), 0.7F);
+        addFeature(new PigEyesLayer<>(this));
     }
 
     @Override
-    public ResourceLocation getEntityTexture(SpiderEntity entity) {
+    public Identifier getTexture(SpiderEntity entity) {
         return TEXTURES;
     }
 }
