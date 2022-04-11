@@ -4,9 +4,9 @@ import com.lupicus.spig.renderer.entity.layers.PigEyesLayer;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.PigEntityModel;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.util.Identifier;
@@ -16,8 +16,8 @@ public class SpiderPigRenderer<T extends SpiderEntity> extends MobEntityRenderer
 {
     private static final Identifier TEXTURES = new Identifier("spig:textures/entity/spider_pig.png");
 
-    public SpiderPigRenderer(EntityRenderDispatcher renderManagerIn, EntityRendererRegistry.Context ctx) {
-        super(renderManagerIn, new PigEntityModel<>(), 0.7F);
+    public SpiderPigRenderer(EntityRendererFactory.Context ctx) {
+        super(ctx, new PigEntityModel<>(ctx.getPart(EntityModelLayers.PIG)), 0.7F);
         addFeature(new PigEyesLayer<>(this));
     }
 
