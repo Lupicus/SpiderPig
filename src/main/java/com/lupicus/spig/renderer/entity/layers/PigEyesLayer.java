@@ -14,7 +14,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class PigEyesLayer<T extends Mob, M extends PigModel<T>> extends EyesLayer<T, M>
 {
-    private static final RenderType RENDER_TYPE = RenderType.eyes(new ResourceLocation(Main.MODID, "textures/entity/pig_eyes.png"));
+    private static final RenderType RENDER_TYPE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Main.MODID, "textures/entity/pig_eyes.png"));
 
     public PigEyesLayer(RenderLayerParent<T, M> renderer) {
         super(renderer);

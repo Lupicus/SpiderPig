@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class CaveSpiderPigRenderer extends SpiderPigRenderer<CaveSpider>
 {
-    private static final ResourceLocation TEXTURES = new ResourceLocation("spig:textures/entity/cave_spider_pig.png");
+    private static final ResourceLocation TEXTURES = ResourceLocation.parse("spig:textures/entity/cave_spider_pig.png");
 
     public CaveSpiderPigRenderer(EntityRendererProvider.Context renderManagerIn) {
         super(renderManagerIn);
