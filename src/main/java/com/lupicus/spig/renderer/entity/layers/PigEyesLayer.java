@@ -4,24 +4,24 @@ import com.lupicus.spig.Main;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.entity.feature.EyesFeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.PigEntityModel;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.PigModel;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.EyesLayer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Mob;
 
 @Environment(EnvType.CLIENT)
-public class PigEyesLayer<T extends MobEntity, M extends PigEntityModel<T>> extends EyesFeatureRenderer<T, M>
+public class PigEyesLayer<T extends Mob, M extends PigModel<T>> extends EyesLayer<T, M>
 {
-    private static final RenderLayer RENDER_TYPE = RenderLayer.getEyes(new Identifier(Main.MODID, "textures/entity/pig_eyes.png"));
+    private static final RenderType RENDER_TYPE = RenderType.eyes(ResourceLocation.fromNamespaceAndPath(Main.MODID, "textures/entity/pig_eyes.png"));
 
-    public PigEyesLayer(FeatureRendererContext<T, M> renderer) {
+    public PigEyesLayer(RenderLayerParent<T, M> renderer) {
         super(renderer);
     }
 
     @Override
-    public RenderLayer getEyesTexture() {
+    public RenderType renderType() {
         return RENDER_TYPE;
     }
 }

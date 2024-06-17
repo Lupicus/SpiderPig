@@ -7,7 +7,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.entity.EntityType;
+import net.minecraft.world.entity.EntityType;
 
 @Environment(EnvType.CLIENT)
 public class MainClient implements ClientModInitializer

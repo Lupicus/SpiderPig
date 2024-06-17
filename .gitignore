@@ -1,9 +1,9 @@
+*.launch
+.classpath
+.gradle/
+.project
+.settings/
 bin/
 build/
 old_stuff/
 run/
-*.launch
-.gradle/
-.settings/
-.classpath
-.project

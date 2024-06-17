@@ -4,25 +4,25 @@ import com.lupicus.spig.renderer.entity.layers.PigEyesLayer;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
-import net.minecraft.client.render.entity.model.PigEntityModel;
-import net.minecraft.entity.mob.SpiderEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.PigModel;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.monster.Spider;
 
 @Environment(EnvType.CLIENT)
-public class SpiderPigRenderer<T extends SpiderEntity> extends MobEntityRenderer<T, PigEntityModel<T>>
+public class SpiderPigRenderer<T extends Spider> extends MobRenderer<T, PigModel<T>>
 {
-    private static final Identifier TEXTURES = new Identifier("spig:textures/entity/spider_pig.png");
+    private static final ResourceLocation TEXTURES = ResourceLocation.parse("spig:textures/entity/spider_pig.png");
 
-    public SpiderPigRenderer(EntityRendererFactory.Context ctx) {
-        super(ctx, new PigEntityModel<>(ctx.getPart(EntityModelLayers.PIG)), 0.7F);
-        addFeature(new PigEyesLayer<>(this));
+    public SpiderPigRenderer(EntityRendererProvider.Context ctx) {
+        super(ctx, new PigModel<>(ctx.bakeLayer(ModelLayers.PIG)), 0.7F);
+        addLayer(new PigEyesLayer<>(this));
     }
 
     @Override
-    public Identifier getTexture(SpiderEntity entity) {
+    public ResourceLocation getTextureLocation(Spider entity) {
         return TEXTURES;
     }
 }
