@@ -4,15 +4,17 @@ import com.lupicus.spig.renderer.entity.CaveSpiderPigRenderer;
 import com.lupicus.spig.renderer.entity.SpiderPigRenderer;
 
 import net.minecraft.world.entity.EntityType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.EventBusSubscriber.Bus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Main.MODID)
@@ -20,9 +22,9 @@ public class Main
 {
     public static final String MODID = "spig";
 
-    public Main()
+    public Main(IEventBus modEventBus, ModContainer modContainer)
     {
-        FMLJavaModLoadingContext.get().getModEventBus().register(this);
+        modEventBus.register(this);
     }
 
     @SubscribeEvent
@@ -36,7 +38,7 @@ public class Main
     {
     }
 
-    @Mod.EventBusSubscriber(bus = Bus.MOD)
+    @EventBusSubscriber(bus = Bus.MOD)
     public static class ModEvents
     {
         @SubscribeEvent
