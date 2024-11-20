@@ -8,4 +8,5 @@ build/
 libs/
 logs/
 old_stuff/
-runs/
+run-data/
+run/
