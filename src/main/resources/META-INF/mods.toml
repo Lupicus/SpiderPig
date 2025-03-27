@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[53,)"
+loaderVersion="[55,)"
 license="MIT License"
 [[mods]]
 modId="spig"
@@ -13,12 +13,12 @@ description='''Spider Pig Mod'''
 [[dependencies.spig]]
     modId="forge"
     mandatory=true
-    versionRange="[53,)"
+    versionRange="[55,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.spig]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.21.3,1.22)"
+    versionRange="[1.21.5,1.22)"
     ordering="NONE"
     side="BOTH"
