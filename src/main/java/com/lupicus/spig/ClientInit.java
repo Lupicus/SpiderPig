@@ -16,7 +16,7 @@ import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
-@Mod.EventBusSubscriber(bus = Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(bus = Bus.FORGE, value = Dist.CLIENT)
 public class ClientInit
 {
     public static final ModelLayerLocation PIG70 = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(Main.MODID, "pig70"), "main");
