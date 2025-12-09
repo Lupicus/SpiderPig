@@ -6,7 +6,8 @@
         "name": "entity.hoglin.ambient",
         "type": "event"
       }
-    ]
+    ],
+    "subtitle": "subtitles.entity.spider.ambient"
   },
   "entity.spider.hurt": {
     "replace": true,
@@ -15,7 +16,8 @@
         "name": "entity.hoglin.hurt",
         "type": "event"
       }
-    ]
+    ],
+    "subtitle": "subtitles.entity.spider.hurt"
   },
   "entity.spider.death": {
     "replace": true,
@@ -24,7 +26,8 @@
         "name": "entity.hoglin.death",
         "type": "event"
       }
-    ]
+    ],
+    "subtitle": "subtitles.entity.spider.death"
   },
   "entity.spider.step": {
     "replace": true,
@@ -33,6 +36,7 @@
         "name": "entity.hoglin.step",
         "type": "event"
       }
-    ]
+    ],
+    "subtitle": "subtitles.block.generic.footsteps"
   }
 }
