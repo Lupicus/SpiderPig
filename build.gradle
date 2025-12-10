@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.80'
+    id 'net.neoforged.moddev' version '2.0.123'
     id 'idea'
 }
 
@@ -18,7 +18,7 @@ version = mod_version
 group = mod_group
 
 repositories {
-    mavenLocal()
+    // Add here additional repositories if required by some of the dependencies below.
 }
 
 base {
@@ -140,7 +140,7 @@ tasks.named('jar', Jar).configure {
     archiveAppendix = "${mc_version}"
     manifest {
         attributes([
-            "Implementation-Title": archivesBaseName,
+            "Implementation-Title": archiveBaseName,
             "Implementation-Version": version,
             "Implementation-Vendor" : "lupicus",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
