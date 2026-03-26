@@ -10,10 +10,7 @@ import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Mob;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
 public class PigEyesLayer<T extends Mob, M extends PigModel> extends EyesLayer<LivingEntityRenderState, M>
 {
     private static final RenderType RENDER_TYPE = RenderTypes.eyes(Identifier.fromNamespaceAndPath(Main.MODID, "textures/entity/pig_eyes.png"));

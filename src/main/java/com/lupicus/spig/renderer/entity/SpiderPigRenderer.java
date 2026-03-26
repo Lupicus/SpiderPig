@@ -10,10 +10,7 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.monster.spider.Spider;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
 public class SpiderPigRenderer<T extends Spider> extends MobRenderer<T, LivingEntityRenderState, PigModel>
 {
     private static final Identifier TEXTURES = Identifier.parse("spig:textures/entity/spider_pig.png");

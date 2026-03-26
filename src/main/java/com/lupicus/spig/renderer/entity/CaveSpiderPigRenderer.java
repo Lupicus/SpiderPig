@@ -6,10 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.monster.spider.CaveSpider;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
-@OnlyIn(Dist.CLIENT)
 public class CaveSpiderPigRenderer extends SpiderPigRenderer<CaveSpider>
 {
     private static final Identifier TEXTURES = Identifier.parse("spig:textures/entity/cave_spider_pig.png");
