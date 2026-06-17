@@ -13,7 +13,7 @@ import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.MeshTransformer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 
 @Environment(EnvType.CLIENT)
 public class MainClient implements ClientModInitializer
@@ -25,7 +25,7 @@ public class MainClient implements ClientModInitializer
 	{
 		ModelLayerRegistry.registerModelLayer(PIG70, () -> PigModel.createBodyLayer(CubeDeformation.NONE).apply(MeshTransformer.scaling(0.7F)));
 
-		EntityRenderers.register(EntityType.SPIDER, SpiderPigRenderer::new);
-		EntityRenderers.register(EntityType.CAVE_SPIDER, CaveSpiderPigRenderer::new);
+		EntityRenderers.register(EntityTypes.SPIDER, SpiderPigRenderer::new);
+		EntityRenderers.register(EntityTypes.CAVE_SPIDER, CaveSpiderPigRenderer::new);
 	}
 }
