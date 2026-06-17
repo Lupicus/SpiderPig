@@ -10,12 +10,12 @@ description='''Spider Pig Mod'''
 [[dependencies.spig]]
     modId="neoforge"
     type="required"
-    versionRange="[26.1.0.7-beta,)"
+    versionRange="[26.2.0.1-beta,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.spig]]
     modId="minecraft"
     type="required"
-    versionRange="[26.1,27)"
+    versionRange="[26.2,27)"
     ordering="NONE"
     side="BOTH"
