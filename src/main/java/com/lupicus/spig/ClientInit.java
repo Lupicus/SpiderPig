@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.MeshTransformer;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent.RegisterLayerDefinitions;
 import net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers;
@@ -24,8 +24,8 @@ public class ClientInit
     @SubscribeEvent
     public static void onRenderers(final RegisterRenderers event)
     {
-    	event.registerEntityRenderer(EntityType.SPIDER, SpiderPigRenderer::new);
-    	event.registerEntityRenderer(EntityType.CAVE_SPIDER, CaveSpiderPigRenderer::new);
+    	event.registerEntityRenderer(EntityTypes.SPIDER, SpiderPigRenderer::new);
+    	event.registerEntityRenderer(EntityTypes.CAVE_SPIDER, CaveSpiderPigRenderer::new);
     }
 
     @SubscribeEvent
